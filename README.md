@@ -1,20 +1,25 @@
-# jevtic_bas — Portfolio
+# Jevtić BAS — Portfolio
 
-Premium, minimalistički 3D portfolio na srpskom (latinica), inspirisan Claude estetikaom.
+Premium portfolio sajt na srpskom (latinica).
 
-**Bez Instagram statistike** — čist profesionalni portfolio.
+- **GitHub:** https://github.com/dobricamitrovic21610-stack/jevticbas
+- **Site (GitHub Pages):** https://dobricamitrovic21610-stack.github.io/jevticbas/
 
-## Pokretanje
+## Lokalno
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Profilna slika
+## Deploy
 
-Stavite Instagram avatar u `public/images/avatar.jpg` i u `src/data/profile.ts` postavite:
+Statički build ide u `docs/` (GitHub Pages: branch `main` / folder `/docs`).
 
-```ts
-avatarUrl: "/images/avatar.jpg",
+```bash
+$env:GITHUB_PAGES="true"
+npm run build
+Remove-Item -Recurse -Force docs
+Copy-Item -Recurse out docs
+New-Item -ItemType File -Path docs\.nojekyll -Force
 ```
