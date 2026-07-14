@@ -15,11 +15,7 @@ type PortfolioPageProps = {
 export function PortfolioPage({ profile }: PortfolioPageProps) {
   return (
     <div id="top" className="bg-atmosphere min-h-screen">
-      <Header
-        brand={profile.displayName}
-        logoUrl={profile.avatarUrl}
-        contactHref="#contact"
-      />
+      <Header brand={profile.displayName} logoUrl={profile.avatarUrl} />
       <main>
         <HeroProfile profile={profile} />
         <AboutSection profile={profile} />

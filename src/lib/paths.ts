@@ -1,0 +1,7 @@
+/** Prefiks za GitHub Pages (npr. /jevticbas) ili prazan string lokalno. */
+export const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+export function asset(path: string): string {
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${basePath}${normalized}`;
+}

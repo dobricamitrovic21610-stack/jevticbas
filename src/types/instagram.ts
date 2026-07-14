@@ -22,6 +22,7 @@ export type PortfolioProfile = {
   email: string;
   phone?: string;
   address?: string;
+  mapsUrl?: string;
   avatarUrl: string;
   profileUrl: string;
   works: PortfolioWork[];

@@ -28,20 +28,20 @@ function InstagramGlyph({ className }: { className?: string }) {
 }
 
 const cardClass =
-  "flex flex-col items-center gap-2 rounded-2xl bg-cream-100/80 px-4 py-5 text-center shadow-[inset_0_1px_2px_rgba(255,255,255,0.9)] transition-transform hover:-translate-y-0.5";
+  "flex min-h-[7.5rem] flex-col items-center justify-center gap-2 rounded-2xl bg-cream-100/80 px-4 py-5 text-center shadow-[inset_0_1px_2px_rgba(255,255,255,0.9)] transition-transform hover:-translate-y-0.5 active:scale-[0.99]";
 
 export function ContactSection({ profile }: ContactSectionProps) {
   return (
     <section
       id="contact"
-      className="mx-auto w-full max-w-6xl px-5 pb-20 sm:px-8 sm:pb-28 lg:px-10"
+      className="section-anchor mx-auto w-full max-w-6xl px-4 pb-16 sm:px-8 sm:pb-28 lg:px-10"
     >
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.7 }}
-        className="overflow-hidden rounded-[2rem] bg-cream-50/95 p-8 shadow-clay-lg sm:p-12"
+        className="overflow-hidden rounded-[1.75rem] bg-cream-50/95 p-6 shadow-clay-lg sm:rounded-[2rem] sm:p-12"
       >
         <div className="mx-auto max-w-2xl text-center">
           <p className="mb-3 text-xs uppercase tracking-[0.22em] text-ink-soft">
@@ -56,33 +56,42 @@ export function ContactSection({ profile }: ContactSectionProps) {
           </p>
         </div>
 
-        <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-3 sm:mt-10 sm:gap-4 lg:grid-cols-4">
           {profile.phone ? (
             <a href={`tel:${profile.phone}`} className={cardClass}>
               <Phone className="size-5 text-ink" strokeWidth={1.75} />
-              <span className="text-xs uppercase tracking-[0.14em] text-ink-soft">
+              <span className="text-[0.65rem] uppercase tracking-[0.14em] text-ink-soft sm:text-xs">
                 Telefon
               </span>
-              <span className="text-sm text-ink">064 45 85 033</span>
+              <span className="text-xs text-ink sm:text-sm">064 45 85 033</span>
             </a>
           ) : null}
 
           <a href={`mailto:${profile.email}`} className={cardClass}>
             <Mail className="size-5 text-ink" strokeWidth={1.75} />
-            <span className="text-xs uppercase tracking-[0.14em] text-ink-soft">
+            <span className="text-[0.65rem] uppercase tracking-[0.14em] text-ink-soft sm:text-xs">
               Email
             </span>
-            <span className="break-all text-sm text-ink">{profile.email}</span>
+            <span className="break-all text-[0.7rem] text-ink sm:text-sm">
+              {profile.email}
+            </span>
           </a>
 
           {profile.address ? (
-            <div className={cardClass}>
+            <a
+              href={profile.mapsUrl ?? "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cardClass}
+            >
               <MapPin className="size-5 text-ink" strokeWidth={1.75} />
-              <span className="text-xs uppercase tracking-[0.14em] text-ink-soft">
+              <span className="text-[0.65rem] uppercase tracking-[0.14em] text-ink-soft sm:text-xs">
                 Adresa
               </span>
-              <span className="text-sm text-ink">{profile.address}</span>
-            </div>
+              <span className="text-xs leading-snug text-ink sm:text-sm">
+                {profile.address}
+              </span>
+            </a>
           ) : null}
 
           <a
@@ -92,10 +101,12 @@ export function ContactSection({ profile }: ContactSectionProps) {
             className={cardClass}
           >
             <InstagramGlyph className="size-5 text-ink" />
-            <span className="text-xs uppercase tracking-[0.14em] text-ink-soft">
+            <span className="text-[0.65rem] uppercase tracking-[0.14em] text-ink-soft sm:text-xs">
               Instagram
             </span>
-            <span className="text-sm text-ink">@{profile.username}</span>
+            <span className="text-xs text-ink sm:text-sm">
+              @{profile.username}
+            </span>
           </a>
         </div>
       </motion.div>

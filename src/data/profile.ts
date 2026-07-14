@@ -11,7 +11,9 @@ export const profile: PortfolioProfile = {
   bio: "Metalne konstrukcije, staklene i aluminijumske ograde, zavarivačko-bravarski radovi i najam kamiona sa korpom. Loznica — radimo širom Srbije.",
   email: "bogdanjevtic@gmail.com",
   phone: "+381644585033",
-  address: "Zaobilazni put bb, Loznica",
+  address: "Брегалничка 5, Лозница",
+  mapsUrl: "https://maps.app.goo.gl/Jaw5ChtahKeLYkry8",
+  // lokalne slike u public/images (GitHub Pages koristi /jevticbas prefiks)
   avatarUrl: "/images/avatar.jpg",
   profileUrl: "https://www.instagram.com/jevtic_bas/",
   works: [

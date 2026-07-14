@@ -36,11 +36,20 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   ::selection {
     background-color: color-mix(in srgb, var(--color-accent) 22%, transparent);
     color: var(--color-ink);
+  }
+
+  #top,
+  #o-nama,
+  #radovi,
+  #contact,
+  .section-anchor {
+    scroll-margin-top: 5.5rem;
   }
 }
 

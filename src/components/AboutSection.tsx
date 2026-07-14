@@ -27,7 +27,7 @@ const services = [
   {
     icon: MapPin,
     title: "Radimo širom Srbije",
-    text: "Sediste u Loznici — izlazimo na terene širom zemlje.",
+    text: "Sedište u Loznici — izlazimo na terene širom zemlje.",
   },
 ];
 
@@ -35,7 +35,7 @@ export function AboutSection({ profile }: AboutSectionProps) {
   return (
     <section
       id="o-nama"
-      className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-8 sm:pb-24 lg:px-10"
+      className="section-anchor mx-auto w-full max-w-6xl px-4 pb-14 sm:px-8 sm:pb-24 lg:px-10"
     >
       <motion.div
         initial={{ opacity: 0, y: 16 }}
@@ -50,10 +50,10 @@ export function AboutSection({ profile }: AboutSectionProps) {
         <h2 className="font-display text-3xl tracking-tight text-ink sm:text-4xl">
           O nama
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-ink-muted sm:text-base">
+        <p className="mx-auto mt-4 max-w-2xl px-1 text-sm leading-relaxed text-ink-muted sm:text-base">
           {profile.displayName} je zavarivačko-bravarska radnja osnovana 2019.
-          godine. Bavimo se izradom i montažom metalnih konstrukcija, ograda i
-          srodnih radova — sa fokusom na preciznost, bezbednost i dugotrajnost.
+          godine. Radimo metalne konstrukcije, ograde, kapije, stepeništa i
+          staklene ograde — precizno, bezbedno i za dugotrajnu upotrebu.
           {profile.address ? ` Adresa: ${profile.address}.` : ""}
         </p>
       </motion.div>
