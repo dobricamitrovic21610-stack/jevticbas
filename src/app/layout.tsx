@@ -14,10 +14,18 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const iconUrl = `${basePath}/images/avatar.jpg`;
+
 export const metadata: Metadata = {
   title: "Jevtić BAS — Metalne konstrukcije i ograde | Loznica",
   description:
     "Jevtić BAS: metalne konstrukcije, staklene i aluminijumske ograde, zavarivačko-bravarski radovi. Loznica — radimo širom Srbije.",
+  icons: {
+    icon: [{ url: iconUrl, type: "image/jpeg" }],
+    shortcut: [iconUrl],
+    apple: [{ url: iconUrl }],
+  },
   openGraph: {
     title: "Jevtić BAS",
     description:
@@ -25,6 +33,7 @@ export const metadata: Metadata = {
     url: "https://www.instagram.com/jevtic_bas/",
     type: "website",
     locale: "sr_RS",
+    images: [{ url: iconUrl }],
   },
 };
 

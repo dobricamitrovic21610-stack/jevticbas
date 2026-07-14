@@ -10,13 +10,6 @@ type HeroProfileProps = {
   profile: PortfolioProfile;
 };
 
-function scrollToId(id: string) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.scrollIntoView({ behavior: "smooth", block: "start" });
-  history.replaceState(null, "", `#${id}`);
-}
-
 export function HeroProfile({ profile }: HeroProfileProps) {
   return (
     <section className="section-anchor relative mx-auto flex w-full max-w-6xl flex-col items-center px-4 pb-12 pt-8 sm:px-8 sm:pb-20 sm:pt-14 lg:px-10">
@@ -43,9 +36,8 @@ export function HeroProfile({ profile }: HeroProfileProps) {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ delay: 0.3, duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
         className="w-full max-w-lg"
-        style={{ perspective: 1200 }}
       >
-        <TiltCard maxTilt={6} scaleOnHover={1.015} className="w-full">
+        <TiltCard maxTilt={5} scaleOnHover={1.01} className="w-full">
           <div className="relative overflow-hidden rounded-[1.75rem] bg-gradient-to-b from-white/90 to-cream-200/80 p-1 shadow-clay-lg sm:rounded-[2rem]">
             <div className="rounded-[1.6rem] bg-cream-50/95 px-5 py-8 sm:rounded-[1.85rem] sm:px-10 sm:py-11">
               <div className="flex flex-col items-center text-center">
@@ -72,31 +64,30 @@ export function HeroProfile({ profile }: HeroProfileProps) {
                 <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-muted sm:mt-5">
                   {profile.bio}
                 </p>
-
-                <div className="mt-7 flex w-full flex-col gap-3 sm:mt-8 sm:flex-row">
-                  <motion.button
-                    type="button"
-                    onClick={() => scrollToId("radovi")}
-                    whileHover={{ y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="inline-flex flex-1 items-center justify-center rounded-full bg-ink px-5 py-3.5 text-sm text-cream-50 shadow-clay sm:py-3"
-                  >
-                    Pogledaj radove
-                  </motion.button>
-                  <motion.button
-                    type="button"
-                    onClick={() => scrollToId("contact")}
-                    whileHover={{ y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="inline-flex flex-1 items-center justify-center rounded-full bg-white/85 px-5 py-3.5 text-sm text-ink shadow-clay sm:py-3"
-                  >
-                    Kontakt
-                  </motion.button>
-                </div>
               </div>
             </div>
           </div>
         </TiltCard>
+
+        {/* Dugmad van 3D kartice da uvek pouzdano rade klik */}
+        <div className="relative z-20 mt-5 flex w-full flex-col gap-3 sm:mt-6 sm:flex-row">
+          <motion.a
+            href="#radovi"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-flex flex-1 items-center justify-center rounded-full bg-ink px-5 py-3.5 text-sm text-cream-50 shadow-clay sm:py-3"
+          >
+            Pogledaj radove
+          </motion.a>
+          <motion.a
+            href="#contact"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-flex flex-1 items-center justify-center rounded-full bg-white/90 px-5 py-3.5 text-sm text-ink shadow-clay sm:py-3"
+          >
+            Kontakt
+          </motion.a>
+        </div>
       </motion.div>
     </section>
   );
